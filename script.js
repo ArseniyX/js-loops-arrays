@@ -2,7 +2,7 @@
 console.log("1 exercise:");
 let step = 3;
 
-const untilNum = (num) => {
+const untilNum = num => {
   if (step <= num) {
     console.log(step);
     step += 3;
@@ -26,7 +26,10 @@ rangeOfNumbers(3, 8);
 // 3. function that write prime numbers from 1 to ur number
 console.log("3 exercise - first way");
 // First way not much effective
-const startNumber = 1;
+// ------------------------------
+
+const startNumber = 1
+const endNumber = 100
 
 const isPrimeNumber = (num) => {
   let bool = false;
@@ -42,11 +45,15 @@ const primeRange = (fromNumber, untilNum) => {
   }
 };
 
-console.log("Is 14 prime number: ", isPrimeNumber(14));
 console.log("From 1 to 100 range: ");
-primeRange(startNumber, 100);
+const startFirstWay = performance.now()
+primeRange(startNumber, endNumber);
+const firstWayDuration = performance.now() - startFirstWay
+
 
 // Second way more effective
+// ------------------------------
+
 console.log("3 exercise - second way");
 const printPrimeSeries = (start, end) => {
   for (let i = start; i < end; i++) {
@@ -64,10 +71,13 @@ const findPrimeOrNot = (num) => {
   }
   return true;
 };
+const startSecondWay = performance.now();
+printPrimeSeries(1, endNumber);
+const secondWayDuration = performance.now() - startSecondWay;
 
-printPrimeSeries(1, 100);
+// Third way the best that I found
+//------------------------------------
 
-// third way
 console.log("3 exercise - third way");
 
 var eratosthenes = function (n) {
@@ -99,7 +109,13 @@ var eratosthenes = function (n) {
   return output;
 };
 
-console.log(eratosthenes(100));
+const startThirdWay = performance.now();
+console.log(eratosthenes(endNumber));
+const thirdWayDuration = performance.now() - startThirdWay;
+console.log(`First way: ${firstWayDuration.toFixed(5)}
+Second way: ${secondWayDuration.toFixed(5)}
+Third way: ${thirdWayDuration.toFixed(5)}
+`);
 
 // 4 exercise: check the sum
 console.log("4 exercise:");
@@ -118,4 +134,4 @@ const likeOrNotLike = (num) => {
     count++
   } while (count <= num);
 };
-likeOrNotLike(13)
+likeOrNotLike(19)
