@@ -29,14 +29,14 @@ console.log("3 exercise - first way");
 // ------------------------------
 
 const startNumber = 1
-const endNumber = 100
+const endNumber = 500 // your number 
 
-const isPrimeNumber = (num) => {
-  let bool = false;
+const isPrimeNumber = num => {
+  let prime = 0;
   for (let i = 1; i < num; i++) {
-    bool += num % i === 0;
+    prime += num % i === 0;
   }
-  return bool > 1 ? false : true;
+  return prime > 1 ? false : true;
 };
 
 const primeRange = (fromNumber, untilNum) => {
@@ -45,7 +45,7 @@ const primeRange = (fromNumber, untilNum) => {
   }
 };
 
-console.log("From 1 to 100 range: ");
+console.log("From 1 to 500 range: ");
 const startFirstWay = performance.now()
 primeRange(startNumber, endNumber);
 const firstWayDuration = performance.now() - startFirstWay
@@ -80,27 +80,27 @@ const secondWayDuration = performance.now() - startSecondWay;
 
 console.log("3 exercise - third way");
 
-var eratosthenes = function (n) {
+const eratosthenes = (n) => {
   // Eratosthenes algorithm to find all primes under n
   var array = [],
     upperLimit = Math.sqrt(n),
     output = [];
 
   // Make an array from 2 to (n - 1)
-  for (var i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     array.push(true);
   }
 
   // Remove multiples of primes starting from 2, 3, 5,...
-  for (var i = 2; i <= upperLimit; i++) {
+  for (let i = 2; i <= upperLimit; i++) {
     if (array[i]) {
-      for (var j = i * i; j < n; j += i) {
+      for (let j = i * i; j < n; j += i) {
         array[j] = false;
       }
     }
   }
 
-  for (var i = 2; i < n; i++) {
+  for (let i = 2; i < n; i++) {
     if (array[i]) {
       output.push(i);
     }
@@ -134,4 +134,6 @@ const likeOrNotLike = (num) => {
     count++
   } while (count <= num);
 };
+
+// 19 times
 likeOrNotLike(19)
