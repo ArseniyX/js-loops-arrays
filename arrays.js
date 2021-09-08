@@ -1,5 +1,5 @@
 // 1. function that get array of numbers and return sum of them
-const sumOfArray = (array) => array.reduce((a, b) => a + b);
+const sumOfArray = array => array.reduce((a, b) => a + b);
 
 console.log(1, sumOfArray([2, 234, 234, 1, 2]));
 
